@@ -10,7 +10,6 @@ const tsify = require('tsify');
 const exorcist = require('exorcist');
 const source = require('vinyl-source-stream');
 const notify = require('gulp-notify');
-const cssModulesify = require('css-modulesify');
 const buffer = require('vinyl-buffer');
 
 const expressPort = 3000;
