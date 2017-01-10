@@ -52,12 +52,12 @@ function browserSyncInit() {
     });
 }
 
-function vendor(){
+function vendor() {
     var vendor = browserify({
         debug: true
     });
 
-    vendorArray.forEach(function(lib) {
+    vendorArray.forEach(function (lib) {
         vendor.require(lib);
     });
 
@@ -68,18 +68,16 @@ function vendor(){
         .pipe(gulp.dest('./dist'));
 }
 
-var bundler  = null;
+var bundler = null;
 
 function bundle() {
     var bundler = bundler || browserify({
-        entries: ['./src/ts/app.ts'],
-        extensions: ['.ts', '.tsx'],
-        debug: true
+            entries: ['./src/ts/app.ts'],
+            extensions: ['.ts', '.tsx'],
+            debug: true
 
-    }).plugin(cssModulesify, {
-        rootDir: __dirname
-    })
-        .plugin(tsify, {target: 'es5'});
+        })
+            .plugin(tsify, {target: 'es5'});
 
     return bundler
         .external(vendorArray)
@@ -109,7 +107,7 @@ gulp.task('html', function () {
     createHtml();
 });
 
-gulp.task('styles',['html'], function () {
+gulp.task('styles', ['html'], function () {
     styles();
 });
 

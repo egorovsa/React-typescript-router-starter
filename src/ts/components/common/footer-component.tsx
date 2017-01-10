@@ -9,9 +9,7 @@ export interface State {
 }
 
 export class FooterComponent extends React.Component<Props, State> {
-    state: State = {
-
-    };
+    state: State = {};
 
     //static defaultProps: Props = {} as Props;
 

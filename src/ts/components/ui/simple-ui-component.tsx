@@ -2,7 +2,8 @@ import * as React from 'react';
 
 export interface Props {
     onClickButton: (inputValue: string) => void,
-    defaultInputValue?: string
+    defaultInputValue?: string,
+    updateFromInput?: boolean
 }
 
 export interface State {
@@ -15,17 +16,30 @@ export class UISimpleComponent extends React.Component<Props, State> {
     };
 
     static defaultProps: Props = {
-        defaultInputValue: ''
+        defaultInputValue: '',
+        updateFromInput: false
     } as Props;
 
     private onInputChangeHandler(e) {
         this.setState({
             inputText: e.target.value
         } as State);
+
+        if (this.props.updateFromInput) {
+            this.props.onClickButton(this.state.inputText);
+        }
     }
 
     private onButtonClickHandler() {
         this.props.onClickButton(this.state.inputText);
+    }
+
+    private getSendButton() {
+        if (!this.props.updateFromInput) {
+            return (
+                <button onClick={this.onButtonClickHandler.bind(this)}>Send input value</button>
+            );
+        }
     }
 
     public render() {
@@ -37,7 +51,7 @@ export class UISimpleComponent extends React.Component<Props, State> {
 
                 <div>
                     <input placeholder="text here..." onChange={this.onInputChangeHandler.bind(this)}/>
-                    <button onClick={this.onButtonClickHandler.bind(this)}>Send input value</button>
+                    {this.getSendButton()}
                 </div>
             </div>
         );

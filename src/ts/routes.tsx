@@ -43,7 +43,6 @@ const routes: Router.PlainRoute = [
 
 ];
 
-
 export class RouterComponent extends React.Component<any,any> {
     public render() {
         return (
