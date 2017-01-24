@@ -15,10 +15,10 @@ export class UISimpleComponent extends React.Component<Props, State> {
         inputText: ''
     };
 
-    static defaultProps: Props = {
+    static defaultProps = {
         defaultInputValue: '',
         updateFromInput: false
-    } as Props;
+    };
 
     private onInputChangeHandler(e) {
         this.setState({
