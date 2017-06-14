@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {EventHandler} from "react";
+import {CommonService} from "../../services/common";
 
 export interface Props {
 
@@ -58,19 +59,16 @@ export class SearchRequestComponent extends React.Component<Props, State> {
 
 		state[parent][field] = e.target.value;
 
-		this.setState({
-			searchRequest: state.searchRequest,
-			secondRequest: state.secondRequest
-		} as State);
+		this.setState(state as State);
 	}
 
 	public render() {
-		console.log(this.state);
-
 		return (
 			<div className="ui-simple">
-				<div className="SearchRequestComponent">
-					SearchRequest
+				<div className="component-name">
+					SearchRequestComponent
+
+					{CommonService.doSomething('hello', 'Alex')}
 				</div>
 
 				<div>
