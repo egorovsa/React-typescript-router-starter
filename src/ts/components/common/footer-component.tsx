@@ -20,7 +20,7 @@ export class FooterComponent extends React.Component<Props, State> {
                     FooterComponent
                 </div>
 
-                <p>React starter with Router and Redux by EgorovSA</p>
+                <p>React starter with Router</p>
             </footer>
         );
     }

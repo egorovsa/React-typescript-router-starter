@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {UISimpleComponent} from "../ui/simple-ui-component";
+import {SearchRequestComponent} from "../ui/search-requset-component";
 
 export interface Props {
 }
@@ -33,6 +34,8 @@ export class MainPageComponent extends React.Component<Props, State> {
                 </p>
 
                 <UISimpleComponent onClickButton={this.showTextFromSimpleComponent.bind(this)}/>
+                <SearchRequestComponent/>
+
             </div>
         );
     }

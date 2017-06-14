@@ -1,41 +1,44 @@
 import * as React from 'react';
 import {UISimpleComponent} from "../ui/simple-ui-component";
+import {SearchRequestComponent} from "../ui/search-requset-component";
 
 export interface Props {
 
 }
 
 export interface State {
-    text: string
+	text: string
 }
 
 export class AboutPageComponent extends React.Component<Props, State> {
-    state: State = {
-        text: 'default text'
-    };
+	state: State = {
+		text: 'default text'
+	};
 
-    //static defaultProps: Props = {} as Props;
+	//static defaultProps: Props = {} as Props;
 
-    private showTextFromSimpleComponent(textFromSimpleComponent: string) {
-        this.setState({
-            text: textFromSimpleComponent
-        } as State)
-    }
+	private showTextFromSimpleComponent(textFromSimpleComponent: string) {
+		this.setState({
+			text: textFromSimpleComponent
+		} as State)
+	}
 
-    public render() {
-        return (
-            <div>
-                <div className="component-name">
-                    AboutPageComponent
-                </div>
+	public render() {
+		return (
+			<div>
+				<div className="component-name">
+					AboutPageComponent
+				</div>
 
-                <p>About page: {this.state.text}</p>
+				<p>About page: {this.state.text}</p>
 
-                <UISimpleComponent
-                    onClickButton={this.showTextFromSimpleComponent.bind(this)}
-                    updateFromInput={true}
-                />
-            </div>
-        );
-    }
+				<UISimpleComponent
+					onClickButton={this.showTextFromSimpleComponent.bind(this)}
+					updateFromInput={true}
+				/>
+
+				<SearchRequestComponent/>
+			</div>
+		);
+	}
 }
