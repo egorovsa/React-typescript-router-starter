@@ -38,8 +38,7 @@ export class SearchRequestComponent extends React.Component<Props, State> {
 	};
 
 	static defaultProps = {
-		defaultInputValue: '',
-		updateFromInput: false
+
 	};
 
 	private onInputChangeHandler(field: any, e) {
@@ -51,7 +50,6 @@ export class SearchRequestComponent extends React.Component<Props, State> {
 			searchRequest: searchRequest
 		} as State);
 	}
-
 
 	public render() {
 		console.log(this.state);
