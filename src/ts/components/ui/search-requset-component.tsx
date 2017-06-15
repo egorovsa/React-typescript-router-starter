@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {EventHandler} from "react";
 import {CommonService} from "../../services/common";
+import * as io from 'socket.io-client';
 
 export interface Props {
 
@@ -63,6 +64,7 @@ export class SearchRequestComponent extends React.Component<Props, State> {
 	}
 
 	public render() {
+		console.log(this.state);
 		return (
 			<div className="ui-simple">
 				<div className="component-name">
