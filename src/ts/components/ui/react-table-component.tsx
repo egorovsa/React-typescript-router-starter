@@ -6,39 +6,20 @@ export interface Props {
 }
 
 export interface State {
+	data: any[],
+	playersModel: any[]
 
 }
 
 export class UIReactBootstrapTable extends React.Component<Props, State> {
 	state: State = {
-		inputText: ''
+		data: [],
+		playersModel: []
 	};
 
-	static defaultProps = {
+	static defaultProps = {};
 
-	};
-
-	private getHeader(): JSX.Element[] {
-		let data: any[] = [
-			'id',
-			'name',
-			'price'
-		];
-
-		return data.map((item, index) => {
-			return (
-				<TableHeaderColumn
-					dataField={item}
-					isKey={index === 0 ? true : false}
-					key={index}
-				>
-					{item}
-				</TableHeaderColumn>
-			)
-		});
-	}
-
-	public render() {
+	componentDidMount() {
 		let products = [{
 			id: 1,
 			name: "Item name 1",
@@ -49,6 +30,41 @@ export class UIReactBootstrapTable extends React.Component<Props, State> {
 			price: 100
 		}];
 
+		let playersModel: any[] = [
+			'id',
+			'name',
+			'price'
+		];
+
+		this.setState({
+			data: products,
+			playersModel: playersModel
+		})
+	}
+
+	private getTableHeaders() {
+		if (this.state.playersModel.length > 0) {
+			let headers = this.state.playersModel.map((item, index) => {
+				return (
+					<TableHeaderColumn
+						dataField={item}
+						isKey={index === 0 ? true : false}
+						key={index}
+					>
+						{item}
+					</TableHeaderColumn>
+				)
+			});
+
+			return (
+				<BootstrapTable data={this.state.data} striped={true} hover={true}>
+					{headers}
+				</BootstrapTable>
+			)
+		}
+	}
+
+	public render() {
 		return (
 			<div className="ui-simple">
 				<div className="component-name">
@@ -56,9 +72,7 @@ export class UIReactBootstrapTable extends React.Component<Props, State> {
 				</div>
 
 				<div>
-					<BootstrapTable data={products} striped={true} hover={true}>
-						{this.getHeader()}
-					</BootstrapTable>
+					{this.getTableHeaders()}
 				</div>
 			</div>
 		);
