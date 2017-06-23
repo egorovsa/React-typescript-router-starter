@@ -3,6 +3,7 @@ import {UISimpleComponent} from "../ui/simple-ui-component";
 import {SearchRequestComponent} from "../ui/search-requset-component";
 import {ParentComponent} from "../ui/parent-children/parent-component";
 import {ChildrenComponent} from "../ui/parent-children/children-component";
+import {UIReactBootstrapTable} from "../ui/react-table-component";
 
 export interface Props {
 }
@@ -34,6 +35,8 @@ export class MainPageComponent extends React.Component<Props, State> {
 				<p>
 					Main page: {this.state.text}
 				</p>
+
+				<UIReactBootstrapTable/>
 
 				<UISimpleComponent onClickButton={this.showTextFromSimpleComponent.bind(this)}/>
 				<SearchRequestComponent/>
