@@ -1,9 +1,8 @@
-/**
- * Created by admin on 14/06/17.
- */
-
 export class CommonService {
-	static doSomething(a: string, b: string): number {
-		return a.length + b.length;
+	static doSomething(a: string, b: string): string {
+		return a+" "+b+": "+(a.length + b.length);
 	}
 }
+
+
+

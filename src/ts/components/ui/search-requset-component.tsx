@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {EventHandler} from "react";
 import {CommonService} from "../../services/common";
-import * as io from 'socket.io-client';
 
 export interface Props {
 
@@ -70,7 +68,6 @@ export class SearchRequestComponent extends React.Component<Props, State> {
 				<div className="component-name">
 					SearchRequestComponent
 
-					{CommonService.doSomething('hello', 'Alex')}
 				</div>
 
 				<div>

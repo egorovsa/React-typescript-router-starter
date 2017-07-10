@@ -1,6 +1,20 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "jsx": "react"
+    "jsx": "react",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "outDir": "dist",
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noEmitOnError": false,
+    "typeRoots": [
+      "./node_modules/@types/"
+    ],
+    "baseUrl": "./src"
   }
 }

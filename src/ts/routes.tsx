@@ -2,14 +2,14 @@ import * as React from 'react';
 import {Router, browserHistory, Route, IndexRoute} from 'react-router';
 import {MainPageComponent} from "./components/pages/main-page-component";
 import {AboutPageComponent} from "./components/pages/about-page-component";
-import {MainLayoutComponentComponent} from "./components/layouts/main-layout";
+import {MainLayoutComponent} from "./components/layouts/main-layout";
 import {SecondLayoutComponent} from "./components/layouts/second-layout";
 import {EmptyPageComponent} from "./components/pages/empty-page-component";
 
-const routes: Router.PlainRoute = [
+const routes = [
     {
         path: '/',
-        components: MainLayoutComponentComponent,
+        components: MainLayoutComponent,
         indexRoute: {components: MainPageComponent},
         childRoutes: [
             {
@@ -23,9 +23,7 @@ const routes: Router.PlainRoute = [
                 ]
             }
         ],
-
-    },
-    {
+    },{
         path: 'second',
         components: SecondLayoutComponent,
         indexRoute: {components: MainPageComponent},
@@ -35,12 +33,10 @@ const routes: Router.PlainRoute = [
                 components: AboutPageComponent,
             }
         ]
-    },
-    {
+    },{
         path: '*',
         components: EmptyPageComponent
     }
-
 ];
 
 export class RouterComponent extends React.Component<any,any> {
